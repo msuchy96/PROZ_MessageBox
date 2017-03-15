@@ -14,7 +14,7 @@ public class Main {
 		System.out.println("Give Information: ");
 		information = input.nextLine();
 		
-		MessageBoxResult result = MessageBox.show(title,information,MessageBoxButtons.OK,MessageBoxIcons.Alert,args);
+		MessageBoxResult result = MessageBox.show(title,information,MessageBoxButtons.YesNoCancel,MessageBoxIcons.Alert,args);
 		
 		System.out.println("Odpowiedü: " + result);
 		

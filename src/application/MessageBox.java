@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -48,7 +49,7 @@ public class MessageBox extends Application {
 	public void start(Stage primaryStage) {
 
 		BorderPane root = new BorderPane();
-		root.setPadding(new Insets(10));
+		root.setPadding(new Insets(20,20,20,20));
 		primaryStage.setTitle(title);
 
 		text = new Text(information);
@@ -56,7 +57,6 @@ public class MessageBox extends Application {
 		text.setTextAlignment(TextAlignment.CENTER);
 		text.setTextAlignment(TextAlignment.JUSTIFY);
 		root.setCenter(text);
-		
 		
 		
 		btnBox = new HBox(40);
@@ -70,8 +70,8 @@ public class MessageBox extends Application {
 		}	
 
 		btnBox.setSpacing(20);
+		btnBox.setPadding(new Insets(8,0,0,0));
 		btnBox.setAlignment(Pos.CENTER);
-		
 		
 		
 		
@@ -80,31 +80,33 @@ public class MessageBox extends Application {
 		
 		imgPic=new ImageView();
 		imgPic.setImage(img);
+		
 		BorderPane.setAlignment(imgPic, Pos.CENTER);
 
 		root.setBottom(btnBox);
 		root.setLeft(imgPic);
 		
 		
-		Scene scene = new Scene(root,600,200);
+		Scene scene = new Scene(root);
+		//System.out.println(scene.);
 		primaryStage.setScene(scene);
+		primaryStage.setResizable(false);
 		primaryStage.show();
 		
  
 	    for(int i = 0; i < numberOfButtons; i++)
-			{
-	    		buttons[i].setOnAction(e->handleButtonAction(e,buttons));
-	    	   /// if(buttons[i].isPressed())
-			}
+	    		buttons[i].setOnAction(e->handleButtonAction(e,buttons,primaryStage));
+	    	      
 			
-
 	}
 	
-	private void handleButtonAction(ActionEvent event,Button []buttons) {
+	private void handleButtonAction(ActionEvent event,Button []buttons,Stage primaryStage) {
 		 
 		for(int i = 0; i < numberOfButtons; i++)
-			if(event.getSource()==buttons[i])
+			if(event.getSource()==buttons[i]) {
 				result = buttonLabels[i];
+				primaryStage.close();
+			}
 		
 	}
 }
