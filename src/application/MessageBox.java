@@ -24,7 +24,7 @@ public class MessageBox extends Application {
 	private static int numberOfButtons;
 	private Text text;
 	public Button closeButton;
-	ImageView imgpic;
+	ImageView imgPic;
 	HBox btnBox;
 
 	public static MessageBoxResult show(String givenTitle, String givenInformation, MessageBoxButtons ButtonsPreference,MessageBoxIcons IconPreference, String[] args) {
@@ -56,11 +56,9 @@ public class MessageBox extends Application {
 		text.setWrappingWidth(500);
 		root.setCenter(text);
 		
-		imgpic=new ImageView();
-
-		
-
+			
 		btnBox = new HBox(40);
+		
 		Button []buttons = new Button[numberOfButtons];
 		for(int i = 0; i < numberOfButtons; i++)
 		{
@@ -69,35 +67,31 @@ public class MessageBox extends Application {
 			btnBox.getChildren().add(buttons[i]);
 		}	
 
+		btnBox.setSpacing(20);
+		btnBox.setPadding(new Insets(0,0,0,280));
 		
 		
 		
-		
+		imgPic=new ImageView();
 		String path = "file:src/images/" + iconName;
 		Image img = new Image(path);
 		
-		imgpic.setImage(img);
+		imgPic.setImage(img);
 
-		btnBox.setSpacing(20);
-		btnBox.setPadding(new Insets(0,0,0,280));
-
+		
 		root.setBottom(btnBox);
-		root.setLeft(imgpic);
+		root.setLeft(imgPic);
+		
 		BorderPane.setAlignment(btnBox, Pos.CENTER);
-		BorderPane.setAlignment(imgpic, Pos.CENTER);
+		BorderPane.setAlignment(imgPic, Pos.CENTER);
+		
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		
-		//button1.setOnAction(e->handleButtonAction(e));
-	   // button2.setOnAction(e->handleButtonAction(e));
-	   // button3.setOnAction(e->handleButtonAction(e));
-	    
+ 
 	    for(int i = 0; i < numberOfButtons; i++)
 			buttons[i].setOnAction(e->handleButtonAction(e,buttons));
 			
-		
-	    
-	  
 
 	}
 	
@@ -107,14 +101,6 @@ public class MessageBox extends Application {
 			if(event.getSource()==buttons[i])
 				result = buttonLabels[i];
 		
-		/*
-		  // if(event.getSource()==button1) 
-		  result = buttonLabels[0];
-		   else if(event.getSource()==button2) 
-			   result = buttonLabels[1];
-		  else if(event.getSource()==button3) 
-			   result = buttonLabels[2];
-		   */
 	}
 }
 
