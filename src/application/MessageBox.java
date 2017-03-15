@@ -23,10 +23,9 @@ public class MessageBox extends Application {
 	private static String result;
 	private static int numberOfButtons;
 	private Text text;
-	Button button1, button2, button3;
 	public Button closeButton;
 	ImageView imgpic;
-	HBox btnbox;
+	HBox btnBox;
 
 	public static MessageBoxResult show(String givenTitle, String givenInformation, MessageBoxButtons ButtonsPreference,MessageBoxIcons IconPreference, String[] args) {
 		
@@ -59,31 +58,18 @@ public class MessageBox extends Application {
 		
 		imgpic=new ImageView();
 
-		switch (numberOfButtons) {
+		
 
-		case 1:
+		btnBox = new HBox(40);
+		Button []buttons = new Button[numberOfButtons];
+		for(int i = 0; i < numberOfButtons; i++)
+		{
+			buttons[i]= new Button();
+			buttons[i].setText(buttonLabels[i]);
+			btnBox.getChildren().add(buttons[i]);
+		}	
 
-			button1 = new Button(buttonLabels[0]);
-			btnbox = new HBox(button1);
-
-			break;
-		case 2:
-
-			button1 = new Button(buttonLabels[0]);
-			button2 = new Button(buttonLabels[1]);
-			btnbox = new HBox(button1, button2);
-
-			break;
-		case 3:
-
-			button1 = new Button(buttonLabels[0]);
-			button2 = new Button(buttonLabels[1]);
-			button3 = new Button(buttonLabels[2]);
-			btnbox = new HBox(button1, button2, button3);
-
-			break;
-
-		}
+		
 		
 		
 		
@@ -92,33 +78,43 @@ public class MessageBox extends Application {
 		
 		imgpic.setImage(img);
 
-		btnbox.setSpacing(20);
-		btnbox.setPadding(new Insets(0,0,0,280));
+		btnBox.setSpacing(20);
+		btnBox.setPadding(new Insets(0,0,0,280));
 
-		root.setBottom(btnbox);
+		root.setBottom(btnBox);
 		root.setLeft(imgpic);
-		BorderPane.setAlignment(btnbox, Pos.CENTER);
+		BorderPane.setAlignment(btnBox, Pos.CENTER);
 		BorderPane.setAlignment(imgpic, Pos.CENTER);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		
-		button1.setOnAction(e->handleButtonAction(e));
-	    button2.setOnAction(e->handleButtonAction(e));
-	    button3.setOnAction(e->handleButtonAction(e));
+		//button1.setOnAction(e->handleButtonAction(e));
+	   // button2.setOnAction(e->handleButtonAction(e));
+	   // button3.setOnAction(e->handleButtonAction(e));
+	    
+	    for(int i = 0; i < numberOfButtons; i++)
+			buttons[i].setOnAction(e->handleButtonAction(e,buttons));
+			
+		
 	    
 	  
 
 	}
 	
-	private void handleButtonAction(ActionEvent event) {
+	private void handleButtonAction(ActionEvent event,Button []buttons) {
 		 
-		   if(event.getSource()==button1) 
-		    result = buttonLabels[0];
+		for(int i = 0; i < numberOfButtons; i++)
+			if(event.getSource()==buttons[i])
+				result = buttonLabels[i];
+		
+		/*
+		  // if(event.getSource()==button1) 
+		  result = buttonLabels[0];
 		   else if(event.getSource()==button2) 
 			   result = buttonLabels[1];
-		   else if(event.getSource()==button3) 
+		  else if(event.getSource()==button3) 
 			   result = buttonLabels[2];
-		   
-		 }
+		   */
+	}
 }
 
