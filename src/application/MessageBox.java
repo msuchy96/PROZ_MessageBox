@@ -10,8 +10,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 public class MessageBox extends Application {
@@ -49,14 +49,16 @@ public class MessageBox extends Application {
 
 		BorderPane root = new BorderPane();
 		root.setPadding(new Insets(10));
-		Scene scene = new Scene(root, 700, 200);
 		primaryStage.setTitle(title);
 
 		text = new Text(information);
-		text.setWrappingWidth(500);
+		text.setWrappingWidth(400);
+		text.setTextAlignment(TextAlignment.CENTER);
+		text.setTextAlignment(TextAlignment.JUSTIFY);
 		root.setCenter(text);
 		
-			
+		
+		
 		btnBox = new HBox(40);
 		
 		Button []buttons = new Button[numberOfButtons];
@@ -68,29 +70,32 @@ public class MessageBox extends Application {
 		}	
 
 		btnBox.setSpacing(20);
-		btnBox.setPadding(new Insets(0,0,0,280));
+		btnBox.setAlignment(Pos.CENTER);
 		
 		
 		
-		imgPic=new ImageView();
+		
 		String path = "file:src/images/" + iconName;
 		Image img = new Image(path);
 		
+		imgPic=new ImageView();
 		imgPic.setImage(img);
+		BorderPane.setAlignment(imgPic, Pos.CENTER);
 
-		
 		root.setBottom(btnBox);
 		root.setLeft(imgPic);
 		
-		BorderPane.setAlignment(btnBox, Pos.CENTER);
-		BorderPane.setAlignment(imgPic, Pos.CENTER);
 		
+		Scene scene = new Scene(root,600,200);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		
  
 	    for(int i = 0; i < numberOfButtons; i++)
-			buttons[i].setOnAction(e->handleButtonAction(e,buttons));
+			{
+	    		buttons[i].setOnAction(e->handleButtonAction(e,buttons));
+	    	   /// if(buttons[i].isPressed())
+			}
 			
 
 	}
