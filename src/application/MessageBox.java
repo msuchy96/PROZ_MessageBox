@@ -18,8 +18,8 @@ public class MessageBox extends Application {
 
 	private static String title;
 	private static String information;
-	private static String[] ButtonLabels;
-	private static String Icon;
+	private static String[] buttonLabels;
+	private static String iconName;
 	private static String result;
 	private static int numberOfButtons;
 	private Text text;
@@ -33,11 +33,11 @@ public class MessageBox extends Application {
 		title = givenTitle;
 		information = givenInformation;
 		numberOfButtons = ButtonsPreference.getCount();
-		ButtonLabels = new String[numberOfButtons];
-		Icon = IconPreference.toString();
+		buttonLabels = new String[numberOfButtons];
+		iconName = IconPreference.toString();
 
 		for (int i = 0; i < numberOfButtons; i++)
-			ButtonLabels[i] = ButtonsPreference.getText(i);
+			buttonLabels[i] = ButtonsPreference.getText(i);
 
 		 launch(args);
 		
@@ -63,22 +63,22 @@ public class MessageBox extends Application {
 
 		case 1:
 
-			button1 = new Button(ButtonLabels[0]);
+			button1 = new Button(buttonLabels[0]);
 			btnbox = new HBox(button1);
 
 			break;
 		case 2:
 
-			button1 = new Button(ButtonLabels[0]);
-			button2 = new Button(ButtonLabels[1]);
+			button1 = new Button(buttonLabels[0]);
+			button2 = new Button(buttonLabels[1]);
 			btnbox = new HBox(button1, button2);
 
 			break;
 		case 3:
 
-			button1 = new Button(ButtonLabels[0]);
-			button2 = new Button(ButtonLabels[1]);
-			button3 = new Button(ButtonLabels[2]);
+			button1 = new Button(buttonLabels[0]);
+			button2 = new Button(buttonLabels[1]);
+			button3 = new Button(buttonLabels[2]);
 			btnbox = new HBox(button1, button2, button3);
 
 			break;
@@ -87,7 +87,7 @@ public class MessageBox extends Application {
 		
 		
 		
-		String path = "file:src/images/" + Icon;
+		String path = "file:src/images/" + iconName;
 		Image img = new Image(path);
 		
 		imgpic.setImage(img);
@@ -112,26 +112,13 @@ public class MessageBox extends Application {
 	
 	private void handleButtonAction(ActionEvent event) {
 		 
-		  
 		   if(event.getSource()==button1) 
-		    result = ButtonLabels[0];
+		    result = buttonLabels[0];
 		   else if(event.getSource()==button2) 
-			   result = ButtonLabels[1];
+			   result = buttonLabels[1];
 		   else if(event.getSource()==button3) 
-			   result = ButtonLabels[2];
+			   result = buttonLabels[2];
 		   
-		  
-		   
-
 		 }
 }
-/*	
-	public class main
-	{
-	
-	
 
-	
-
-}
-*/
