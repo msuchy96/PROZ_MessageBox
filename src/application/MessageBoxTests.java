@@ -26,7 +26,7 @@ public class MessageBoxTests {
 		System.out.println("Give Information: ");
 		information = input.nextLine();
 		
-		MessageBoxResult result = MessageBox.show(title,information,MessageBoxButtons.YesNoCancel,MessageBoxIcons.Alert,args);
+		MessageBoxResult result = MessageBox.show(title,information,MessageBoxButtons.YesNo,MessageBoxIcons.Warning,args);
 		
 		System.out.println("Odpowiedü: " + result);
 		
