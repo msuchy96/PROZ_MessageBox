@@ -1,3 +1,14 @@
+/**
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
 package application;
 
 public enum MessageBoxIcons {
@@ -9,12 +20,21 @@ public enum MessageBoxIcons {
 
 	private String text;
 
+	
+	/**
+	 * 
+	 * @param msg
+	 */
 	MessageBoxIcons(String msg) 
 	{
 		text = msg;
 	}
 
-	@Override
+	
+	/**
+	 * 
+	 * override
+	 */
 	public String toString() 
 	{
 		return text;

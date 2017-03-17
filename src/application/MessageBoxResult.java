@@ -1,3 +1,10 @@
+/**
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
 package application;
 
 public enum MessageBoxResult {
@@ -11,18 +18,31 @@ public enum MessageBoxResult {
 	No("Nie");
 	
 	private String text;
-
+	/**
+	 * 
+	 * @param msg
+	 */
 	MessageBoxResult(String msg) 
 	{
 		text = msg;
 	}
 
-	@Override
+	
+	/**
+	 * 
+	 * 
+	 * override
+	 */
 	public String toString() 
 	{
 		return text;
 	}
-
+	/**
+	 * 
+	 * 
+	 * @param text
+	 * @return
+	 */
 	public static MessageBoxResult getResult(String text)
 	{
 		for (MessageBoxResult result : MessageBoxResult.values())
