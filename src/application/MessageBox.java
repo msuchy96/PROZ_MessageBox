@@ -44,9 +44,7 @@ public class MessageBox extends Application {
 	
 	
 	/**
-	 *  Metoda show() odpowiada za pobranie od u¿ytkownika w argumentach informacji o wyœwietlanym oknie, zapisanie ich jako argumenty klasy MessageBox
-	 *  ,wywo³anie metody start() poprzez wywo³anie metody Launch() i zwrócenie wyniku.
-	 * 
+	 *  Metoda show() odpowiada za pobranie od u¿ytkownika w argumentach informacji o wyœwietlanym oknie, zapisanie ich jako argumenty klasy MessageBox ,wywo³anie metody start() poprzez wywo³anie metody Launch().
 	 * 
 	 * @param givenTitle Otrzymany tytu³
 	 * @param givenInformation Otrzymany komunikat
@@ -75,14 +73,14 @@ public class MessageBox extends Application {
 
 	
 		/** 
-		 * Metoda start() odpowiada za wyœwietlanie tworzenie i wyœwietlanie okna oraz "nas³uchiwanie" czy jakiœ przycisk nie zosta³ naciœniêty.
+		 * Metoda start() odpowiada za tworzenie i wyœwietlanie okna oraz "nas³uchiwanie" czy jakiœ przycisk nie zosta³ naciœniêty.
 		 * 
 		 * 
 		 * @param primaryStage Obiekt klasy stage skonstruowany przez platforme JavaFx
 		 * @param root Obiekt klasy BorderPane. Jest to layout, który posiada 5 obszarów: top,right,bottom,left,center
 		 * @param text Obiekt klasy Text, który odpowiada za opakowanie komunikatu i jego wygl¹d.
 		 * @param btnbox Obiekt klasy HBox, który odpowiada za opakowanie nszych przycisków i zarz¹dzanie ich wygl¹dem.
-		 * @param []buttons Tablica typu Button trzymaj¹ca wszystkie stworzone obiekty typu Button.
+		 * @param buttons Tablica typu Button trzymaj¹ca wszystkie stworzone obiekty typu Button.
 		 * @param path Parametr typu String odpowiadaj¹cy za stworzenie dok³adnej œcie¿ki z nazw¹ wyœwietlanej ikony.
   		 * @param img Obiekt typu Image, który zawiera wybran¹ ikonê.
 		 * @param imgPic Obiekt typu ImageView, który odpowiada za opakowanie ikony i zarz¹dzanie ni¹.
@@ -145,11 +143,12 @@ public class MessageBox extends Application {
 	}
 	
 	/**
+	 * Metoda odpowiadaj¹ca za obs³ugê event'u.
 	 * 
 	 * 
-	 * @param event
-	 * @param buttons
-	 * @param primaryStage
+	 * @param event Parametr typu Event, odpowiadaj¹cy za przechowanie wykonanej akcji.
+	 * @param buttons Tablica typu Buttnos, przechowuj¹ca wszystkie predefiniowane przyciski. 
+	 * @param primaryStage Obiekt klasy Stage. Do tej metody przekazany jest w celu zamkniêcia okna, jeœli któryœ z podanych przycisków zosta³ naciœniêty.
 	 */
 	private void handleButtonAction(ActionEvent event,Button []buttons,Stage primaryStage) {
 		 
