@@ -74,18 +74,19 @@ public class MessageBox extends Application {
 	}
 
 	
-		/** Metoda start() odpowiada za wyœwietlanie tworzenie i wyœwietlanie okna oraz "nas³uchiwanie" czy jakiœ przycisk nie zosta³ naciœniêty.
+		/** 
+		 * Metoda start() odpowiada za wyœwietlanie tworzenie i wyœwietlanie okna oraz "nas³uchiwanie" czy jakiœ przycisk nie zosta³ naciœniêty.
 		 * 
 		 * 
-		 * @param primaryStage
-		 * @param root
-		 * @param text
-		 * @param btnbox
-		 * @param []buttons
-		 * @param path
-  		 * @param img
-		 * @param imgPic
-		 * @param scene
+		 * @param primaryStage Obiekt klasy stage skonstruowany przez platforme JavaFx
+		 * @param root Obiekt klasy BorderPane. Jest to layout, który posiada 5 obszarów: top,right,bottom,left,center
+		 * @param text Obiekt klasy Text, który odpowiada za opakowanie komunikatu i jego wygl¹d.
+		 * @param btnbox Obiekt klasy HBox, który odpowiada za opakowanie nszych przycisków i zarz¹dzanie ich wygl¹dem.
+		 * @param []buttons Tablica typu Button trzymaj¹ca wszystkie stworzone obiekty typu Button.
+		 * @param path Parametr typu String odpowiadaj¹cy za stworzenie dok³adnej œcie¿ki z nazw¹ wyœwietlanej ikony.
+  		 * @param img Obiekt typu Image, który zawiera wybran¹ ikonê.
+		 * @param imgPic Obiekt typu ImageView, który odpowiada za opakowanie ikony i zarz¹dzanie ni¹.
+		 * @param scene Obiekt typu Scene, który tworzy scene na której wyœwietlany jest zaprojektowany layout. 
 		 * 
 		 */
 	
