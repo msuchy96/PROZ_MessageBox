@@ -44,17 +44,18 @@ public class MessageBox extends Application {
 	
 	
 	/**
+	 *  Metoda show() odpowiada za pobranie od u¿ytkownika w argumentach informacji o wyœwietlanym oknie, zapisanie ich jako argumenty klasy MessageBox
+	 *  ,wywo³anie metody start() poprzez wywo³anie metody Launch() i zwrócenie wyniku.
 	 * 
 	 * 
-	 * 
-	 * @param givenTitle
-	 * @param givenInformation
-	 * @param ButtonsPreference
-	 * @param IconPreference
-	 * @param args
-	 * @return
+	 * @param givenTitle Otrzymany tytu³
+	 * @param givenInformation Otrzymany komunikat
+	 * @param ButtonsPreference Otrzymane preferencje dotycz¹ce przycisków
+	 * @param IconPreference Otrzymane preferencje dotycz¹ce ikony 
+	 * @param args Argumenty programu
+	 * @return Gotowy enum MessageBoxResult, który mówi o tym jaki przycisk zosta³ wciœniêty
 	 */
-		
+	
 	public static MessageBoxResult show(String givenTitle, String givenInformation, MessageBoxButtons ButtonsPreference,MessageBoxIcons IconPreference, String[] args) {
 		
 		title = givenTitle;
@@ -73,16 +74,21 @@ public class MessageBox extends Application {
 	}
 
 	
-		/**
+		/** Metoda start() odpowiada za wyœwietlanie tworzenie i wyœwietlanie okna oraz "nas³uchiwanie" czy jakiœ przycisk nie zosta³ naciœniêty.
 		 * 
 		 * 
+		 * @param primaryStage
+		 * @param root
+		 * @param text
+		 * @param btnbox
+		 * @param []buttons
+		 * @param path
+  		 * @param img
+		 * @param imgPic
+		 * @param scene
 		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * override
 		 */
+	
 		public void start(Stage primaryStage) {
 		
 		
