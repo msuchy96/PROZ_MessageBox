@@ -1,12 +1,7 @@
 /**
+ * Enum zawieraj¹cy informacje o ikonach.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
+ * @param text Parametr typu String zawieraj¹cy nazwê pliku z ikon¹.
  * 
  */
 package application;
