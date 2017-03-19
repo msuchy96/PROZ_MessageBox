@@ -4,10 +4,9 @@
  * W klasie wystêpuj¹ nastêpuj¹ce parametry:
  * @param title	Parametr typu String odpowiadaj¹cy za przechowanie nazwy tytu³u okna komunikatu.
  * @param information Parametr typu String odpawiadaj¹cy za przechowanie komunikatu podanego przez u¿ytkownika.
- * @param buttonLabels Tablica typu String odpowiadaj¹ca za przechowanie wszystkich komunikatów wyœwietlanych na przyciskach okna komunikatu.
- * @param iconName Parametr typu String odpowiadaj¹cy za przechowanie nazwy pliku zawieraj¹cego obrazek wyœwietlany w oknie komunikatu.
  * @param result Parametr typu String odpowiadaj¹cy za przechowanie komunikatu, który znajdowa³ siê na przycisku, który nacisn¹³ u¿ytkownik.
- * @param numberOfButtons Paramtr typu int oddpowiadaj¹cy za przechowanie liczby predefiniowanych przycisków.
+ * @param boxIcon Enum zawieraj¹cy informacje o preferowanej ikonie.
+ * @param boxButtons Enum zawieraj¹cy informacje o preferowanych przyciskach.
  * 
  * @autor Maciej Suchocki / msuchock@stud.elka.pw.edu.pl
  * @version 1.7
@@ -34,56 +33,52 @@ public class MessageBox extends Application {
 
 	private static String title;
 	private static String information;
-	private static String[] buttonLabels;
-	private static String iconName;
 	private static String result;
-	private static int numberOfButtons;
-	
-	
+	private static MessageBoxIcons boxIcon;
+	private static MessageBoxButtons boxButtons;
 	
 	
 	
 	/**
+	 *  Metoda show() odpowiada za pobranie od u¿ytkownika w argumentach informacji o wyœwietlanym oknie, zapisanie ich jako argumenty klasy MessageBox oraz wywo³anie metody start() poprzez wywo³anie metody Launch().
 	 * 
-	 * 
-	 * 
-	 * @param givenTitle
-	 * @param givenInformation
-	 * @param ButtonsPreference
-	 * @param IconPreference
-	 * @param args
-	 * @return
+	 * @param givenTitle Otrzymany tytu³
+	 * @param givenInformation Otrzymany komunikat
+	 * @param buttonsPreference Otrzymane preferencje dotycz¹ce przycisków
+	 * @param iconPreference Otrzymane preferencje dotycz¹ce ikony 
+	 * @param args Argumenty programu
+	 * @return Enum MessageBoxResult, który mówi o tym jaki przycisk zosta³ wciœniêty
 	 */
-		
-	public static MessageBoxResult show(String givenTitle, String givenInformation, MessageBoxButtons ButtonsPreference,MessageBoxIcons IconPreference, String[] args) {
+	public static MessageBoxResult show(String givenTitle, String givenInformation, MessageBoxButtons buttonsPreference,MessageBoxIcons iconPreference, String[] args) {
 		
 		title = givenTitle;
 		information = givenInformation;
-		numberOfButtons = ButtonsPreference.getCount();
-		buttonLabels = new String[numberOfButtons];
-		iconName = IconPreference.toString();
+		boxIcon = iconPreference;
+		boxButtons = buttonsPreference;
 
-		for (int i = 0; i < numberOfButtons; i++)
-			buttonLabels[i] = ButtonsPreference.getText(i);
-
-		 launch(args);
+	    launch(args);
 		
 		return MessageBoxResult.getResult(result);
 
 	}
 
 	
-		/**
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * override
-		 */
-		public void start(Stage primaryStage) {
+	/** 
+	 * Nadpisana metoda (po klasie Application) start() ,która odpowiada za tworzenie i wyœwietlanie okna oraz "nas³uchiwanie" czy jakiœ przycisk nie zosta³ naciœniêty. Nadpisana 
+	 * 
+ 	 * @param primaryStage Obiekt klasy stage skonstruowany przez platforme JavaFx
+	 * @param root Obiekt klasy BorderPane. Jest to layout, który posiada 5 obszarów: top,right,bottom,left,center
+	 * @param text Obiekt klasy Text, który odpowiada za opakowanie komunikatu i jego wygl¹d.
+	 * @param btnbox Obiekt klasy HBox, który odpowiada za opakowanie nszych przycisków i zarz¹dzanie ich wygl¹dem.
+	 * @param buttons Tablica typu Button trzymaj¹ca wszystkie stworzone obiekty typu Button.
+	 * @param path Parametr typu String odpowiadaj¹cy za stworzenie dok³adnej œcie¿ki z nazw¹ wyœwietlanej ikony.
+  	 * @param img Obiekt typu Image, który zawiera wybran¹ ikonê.
+	 * @param imgPic Obiekt typu ImageView, który odpowiada za opakowanie ikony i zarz¹dzanie ni¹.
+	 * @param scene Obiekt typu Scene, który tworzy scene na której wyœwietlany jest zaprojektowany layout. 
+	 * 
+	 */
+	@Override
+	public void start(Stage primaryStage) {
 		
 		
 		BorderPane root = new BorderPane();
@@ -99,11 +94,11 @@ public class MessageBox extends Application {
 		
 		HBox btnBox = new HBox(40);
 		
-		Button []buttons = new Button[numberOfButtons];
-		for(int i = 0; i < numberOfButtons; i++)
+		Button []buttons = new Button[boxButtons.getCount()];
+		for(int i = 0; i < boxButtons.getCount(); i++)
 		{
 			buttons[i]= new Button();
-			buttons[i].setText(buttonLabels[i]);
+			buttons[i].setText(boxButtons.getText(i));
 			btnBox.getChildren().add(buttons[i]);
 		}	
 
@@ -113,7 +108,7 @@ public class MessageBox extends Application {
 		
 		
 		
-		String path = "file:src/images/" + iconName;
+		String path = "file:src/images/" + boxIcon.toString();
 		Image img = new Image(path);
 		
 		ImageView imgPic = new ImageView();
@@ -131,24 +126,24 @@ public class MessageBox extends Application {
 		primaryStage.show();
 		
  
-	    for(int i = 0; i < numberOfButtons; i++)
+	    for(int i = 0; i < boxButtons.getCount(); i++)
 	    		buttons[i].setOnAction(e->handleButtonAction(e,buttons,primaryStage));
 	    	      
 			
 	}
 	
 	/**
+	 * Metoda odpowiadaj¹ca za obs³ugê event'u i zamykanie sceny.
 	 * 
-	 * 
-	 * @param event
-	 * @param buttons
-	 * @param primaryStage
+	 * @param event Parametr typu Event, odpowiadaj¹cy za przechowanie wykonanej akcji.
+	 * @param buttons Tablica typu Buttnos, przechowuj¹ca wszystkie predefiniowane przyciski. 
+	 * @param primaryStage Obiekt klasy Stage. Do tej metody przekazany jest w celu zamkniêcia okna, jeœli któryœ z podanych przycisków zosta³ naciœniêty.
 	 */
 	private void handleButtonAction(ActionEvent event,Button []buttons,Stage primaryStage) {
 		 
-		for(int i = 0; i < numberOfButtons; i++)
+		for(int i = 0; i < boxButtons.getCount(); i++)
 			if(event.getSource()==buttons[i]) {
-				result = buttonLabels[i];
+				result = boxButtons.getText(i);
 				primaryStage.close();
 			}
 		

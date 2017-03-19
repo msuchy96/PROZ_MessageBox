@@ -1,12 +1,7 @@
 /**
+ * Enum zawieraj¹cy informacje o ikonach.
  * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
+ * @param text Parametr typu String zawieraj¹cy nazwê pliku z ikon¹.
  * 
  */
 package application;
@@ -17,13 +12,12 @@ public enum MessageBoxIcons {
 	Warning("StatusWarning_64x.png"), 
 	Alert("StatusAlert_64x.png"), 
 	CriticalError("StatusCriticalError_64x.png");
-
 	private String text;
 
 	
 	/**
-	 * 
-	 * @param msg
+	 * Konstruktor enuma.
+	 * @param msg Argument typu String, który jest kopiowany do nowego jako nowa nazwa pliku z ikon¹ w enumie.
 	 */
 	MessageBoxIcons(String msg) 
 	{
@@ -32,9 +26,10 @@ public enum MessageBoxIcons {
 
 	
 	/**
-	 * 
-	 * override
+	 * Metoda zwracaj¹ca nazwê pliku z ikon¹.
+	 * @return Nazwa pliku z ikon¹.
 	 */
+	@Override
 	public String toString() 
 	{
 		return text;
