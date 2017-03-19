@@ -16,8 +16,8 @@ public enum MessageBoxIcons {
 
 	
 	/**
-	 * 
-	 * @param msg
+	 * Konstruktor enuma.
+	 * @param msg Argument typu String, który jest kopiowany do nowego jako nowa nazwa pliku z ikon¹ w enumie.
 	 */
 	MessageBoxIcons(String msg) 
 	{
@@ -26,9 +26,10 @@ public enum MessageBoxIcons {
 
 	
 	/**
-	 * 
-	 * override
+	 * Metoda zwracaj¹ca nazwê pliku z ikon¹.
+	 * @return Nazwa pliku z ikon¹.
 	 */
+	@Override
 	public String toString() 
 	{
 		return text;

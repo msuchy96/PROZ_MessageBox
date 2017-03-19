@@ -40,7 +40,7 @@ public class MessageBox extends Application {
 	
 	
 	/**
-	 *  Metoda show() odpowiada za pobranie od u¿ytkownika w argumentach informacji o wyœwietlanym oknie, zapisanie ich jako argumenty klasy MessageBox ,wywo³anie metody start() poprzez wywo³anie metody Launch().
+	 *  Metoda show() odpowiada za pobranie od u¿ytkownika w argumentach informacji o wyœwietlanym oknie, zapisanie ich jako argumenty klasy MessageBox oraz wywo³anie metody start() poprzez wywo³anie metody Launch().
 	 * 
 	 * @param givenTitle Otrzymany tytu³
 	 * @param givenInformation Otrzymany komunikat
@@ -77,6 +77,7 @@ public class MessageBox extends Application {
 	 * @param scene Obiekt typu Scene, który tworzy scene na której wyœwietlany jest zaprojektowany layout. 
 	 * 
 	 */
+	@Override
 	public void start(Stage primaryStage) {
 		
 		
@@ -132,7 +133,7 @@ public class MessageBox extends Application {
 	}
 	
 	/**
-	 * Metoda odpowiadaj¹ca za obs³ugê event'u.
+	 * Metoda odpowiadaj¹ca za obs³ugê event'u i zamykanie sceny.
 	 * 
 	 * @param event Parametr typu Event, odpowiadaj¹cy za przechowanie wykonanej akcji.
 	 * @param buttons Tablica typu Buttnos, przechowuj¹ca wszystkie predefiniowane przyciski. 

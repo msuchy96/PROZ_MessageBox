@@ -1,8 +1,5 @@
 /**
- * 
- * 
- * 
- * 
+ * Enum zawieraj¹cy informacje o tym jaki przycisk zosta³ naciœniêty.
  * 
  */
 package application;
@@ -16,11 +13,12 @@ public enum MessageBoxResult {
 	Cancel("Anuluj"), 
 	Yes("Tak"),
 	No("Nie");
-	
 	private String text;
+	
 	/**
+	 * Konstruktor enuma.
 	 * 
-	 * @param msg
+	 * @param msg Argument typu String, który jest kopiowany jako nowy mo¿liwy wybór komunikatu.
 	 */
 	MessageBoxResult(String msg) 
 	{
@@ -29,19 +27,21 @@ public enum MessageBoxResult {
 
 	
 	/**
+	 * Metoda zwracaj¹ca nazwê naciœniêtego przycisku.
 	 * 
-	 * 
-	 * override
+	 * @return Nazwa naciœniêtego przycisku.
 	 */
+	@Override
 	public String toString() 
 	{
 		return text;
 	}
+	
 	/**
+	 * Metoda zwracaj¹ca enum w zale¿noœci od naciœniêtego przycisku. 
 	 * 
-	 * 
-	 * @param text
-	 * @return
+	 * @param text Argument typu Strng, który opisuje jaki przycisk zosta³ naciœniêty.
+	 * @return Enum komunikatu jaki zosta³ naciœniêty, lub enum "Cancel" w przypadku zamkniêcia okna.
 	 */
 	public static MessageBoxResult getResult(String text)
 	{
