@@ -37,6 +37,12 @@ public class MessageBox extends Application {
 	private static MessageBoxButtons boxButtons;
 
 	/**
+	 * Prywatny konstruktor bezargumentowy, aby nikt z zewnatrz nie mogl stworzyc obiektu tej klasy.
+	 * 
+	 */
+	private MessageBox() {}
+	
+	/**
 	 * Metoda show() odpowiada za pobranie od uzytkownika w argumentach
 	 * informacji o wyswietlanym oknie, zapisanie ich jako argumenty klasy
 	 * MessageBox oraz wywolanie metody start() poprzez wywolanie metody

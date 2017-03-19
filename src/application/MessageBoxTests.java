@@ -1,6 +1,7 @@
 /**
  * Klasa testujaca projekt.
  * 
+ * Klasa nie potrzebuje konstruktora poniewaz obiekt nigdy nie jest tworzony.
  */
 
 package application;
@@ -9,6 +10,7 @@ import java.util.Scanner;
 
 public class MessageBoxTests {
 
+	
 	/**
 	 * Metoda pobierajaca od uaytkownika informacje, wywolujaca metody tworzace
 	 * okno i wypisujaca wyniki.
