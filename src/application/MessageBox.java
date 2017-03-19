@@ -49,7 +49,6 @@ public class MessageBox extends Application {
 	 * @param args Argumenty programu
 	 * @return Enum MessageBoxResult, który mówi o tym jaki przycisk zosta³ wciœniêty
 	 */
-	
 	public static MessageBoxResult show(String givenTitle, String givenInformation, MessageBoxButtons buttonsPreference,MessageBoxIcons iconPreference, String[] args) {
 		
 		title = givenTitle;
@@ -64,23 +63,21 @@ public class MessageBox extends Application {
 	}
 
 	
-		/** 
-		 * Nadpisana metoda (od klasy Application) start(),która odpowiada za tworzenie i wyœwietlanie okna oraz "nas³uchiwanie" czy jakiœ przycisk nie zosta³ naciœniêty. Nadpisana 
-		 * 
-		 * 
-		 * @param primaryStage Obiekt klasy stage skonstruowany przez platforme JavaFx
-		 * @param root Obiekt klasy BorderPane. Jest to layout, który posiada 5 obszarów: top,right,bottom,left,center
-		 * @param text Obiekt klasy Text, który odpowiada za opakowanie komunikatu i jego wygl¹d.
-		 * @param btnbox Obiekt klasy HBox, który odpowiada za opakowanie nszych przycisków i zarz¹dzanie ich wygl¹dem.
-		 * @param buttons Tablica typu Button trzymaj¹ca wszystkie stworzone obiekty typu Button.
-		 * @param path Parametr typu String odpowiadaj¹cy za stworzenie dok³adnej œcie¿ki z nazw¹ wyœwietlanej ikony.
-  		 * @param img Obiekt typu Image, który zawiera wybran¹ ikonê.
-		 * @param imgPic Obiekt typu ImageView, który odpowiada za opakowanie ikony i zarz¹dzanie ni¹.
-		 * @param scene Obiekt typu Scene, który tworzy scene na której wyœwietlany jest zaprojektowany layout. 
-		 * 
-		 */
-	
-		public void start(Stage primaryStage) {
+	/** 
+	 * Nadpisana metoda (po klasie Application) start() ,która odpowiada za tworzenie i wyœwietlanie okna oraz "nas³uchiwanie" czy jakiœ przycisk nie zosta³ naciœniêty. Nadpisana 
+	 * 
+ 	 * @param primaryStage Obiekt klasy stage skonstruowany przez platforme JavaFx
+	 * @param root Obiekt klasy BorderPane. Jest to layout, który posiada 5 obszarów: top,right,bottom,left,center
+	 * @param text Obiekt klasy Text, który odpowiada za opakowanie komunikatu i jego wygl¹d.
+	 * @param btnbox Obiekt klasy HBox, który odpowiada za opakowanie nszych przycisków i zarz¹dzanie ich wygl¹dem.
+	 * @param buttons Tablica typu Button trzymaj¹ca wszystkie stworzone obiekty typu Button.
+	 * @param path Parametr typu String odpowiadaj¹cy za stworzenie dok³adnej œcie¿ki z nazw¹ wyœwietlanej ikony.
+  	 * @param img Obiekt typu Image, który zawiera wybran¹ ikonê.
+	 * @param imgPic Obiekt typu ImageView, który odpowiada za opakowanie ikony i zarz¹dzanie ni¹.
+	 * @param scene Obiekt typu Scene, który tworzy scene na której wyœwietlany jest zaprojektowany layout. 
+	 * 
+	 */
+	public void start(Stage primaryStage) {
 		
 		
 		BorderPane root = new BorderPane();
@@ -136,7 +133,6 @@ public class MessageBox extends Application {
 	
 	/**
 	 * Metoda odpowiadaj¹ca za obs³ugê event'u.
-	 * 
 	 * 
 	 * @param event Parametr typu Event, odpowiadaj¹cy za przechowanie wykonanej akcji.
 	 * @param buttons Tablica typu Buttnos, przechowuj¹ca wszystkie predefiniowane przyciski. 
