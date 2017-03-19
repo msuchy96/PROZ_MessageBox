@@ -37,16 +37,17 @@ public class MessageBox extends Application {
 	private static MessageBoxButtons boxButtons;
 
 	/**
-	 * Prywatny konstruktor bezargumentowy, aby nikt z zewnatrz nie mogl stworzyc obiektu tej klasy.
+	 * Prywatny konstruktor bezargumentowy, aby nikt z zewnatrz nie mogl
+	 * stworzyc obiektu tej klasy.
 	 * 
 	 */
-	private MessageBox() {}
-	
+	private MessageBox() {
+	}
+
 	/**
 	 * Metoda show() odpowiada za pobranie od uzytkownika w argumentach
-	 * informacji o wyswietlanym oknie, wywo³anie glownego settera
-	 * MessageBox oraz wywolanie metody start() poprzez wywolanie metody
-	 * Launch().
+	 * informacji o wyswietlanym oknie, wywo³anie glownego settera MessageBox
+	 * oraz wywolanie metody start() poprzez wywolanie metody Launch().
 	 * 
 	 * @param givenTitle
 	 *            Otrzymany tytul
@@ -64,15 +65,13 @@ public class MessageBox extends Application {
 	public static MessageBoxResult show(String givenTitle, String givenInformation, MessageBoxButtons buttonsPreference,
 			MessageBoxIcons iconPreference, String[] args) {
 
-		
-		setMessageBox(givenTitle,givenInformation,iconPreference,buttonsPreference);	
-		
+		setMessageBox(givenTitle, givenInformation, iconPreference, buttonsPreference);
+
 		launch(args);
 
 		return MessageBoxResult.getResult(result);
 
 	}
-	
 
 	/**
 	 * Metoda start() ,ktora odpowiada za tworzenie i wyswietlanie okna oraz
@@ -168,7 +167,7 @@ public class MessageBox extends Application {
 			}
 
 	}
-	
+
 	/**
 	 * Metoda ustawiajaca wszystkie najwazniejsze parametry okna
 	 * 
@@ -182,12 +181,11 @@ public class MessageBox extends Application {
 	 *            Otrzymane preferencje dotyczace ikony
 	 */
 	private static void setMessageBox(String givenTitle, String givenInformation, MessageBoxIcons iconPreference,
-			MessageBoxButtons buttonsPreference)
-	{
+			MessageBoxButtons buttonsPreference) {
 		title = givenTitle;
 		information = givenInformation;
 		boxIcon = iconPreference;
 		boxButtons = buttonsPreference;
-		
+
 	}
 }
