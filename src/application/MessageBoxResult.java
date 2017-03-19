@@ -1,5 +1,5 @@
 /**
- * Enum zawieraj¹cy informacje o tym jaki przycisk zosta³ naciœniêty.
+ * Enum zawierajacy informacje o tym jaki przycisk zostal nacisniety.
  * 
  */
 package application;
@@ -7,7 +7,7 @@ package application;
 public enum MessageBoxResult {
 
 	Abort("Przerwij"), 
-	Retry("Ponów"), 
+	Retry("Ponow"), 
 	Ignore("Ignoruj"), 
 	OK("OK"), 
 	Cancel("Anuluj"), 
@@ -18,7 +18,7 @@ public enum MessageBoxResult {
 	/**
 	 * Konstruktor enuma.
 	 * 
-	 * @param msg Argument typu String, który jest kopiowany jako nowy mo¿liwy wybór komunikatu.
+	 * @param msg Argument typu String, ktory jest kopiowany jako nowy mozliwy wybor komunikatu.
 	 */
 	MessageBoxResult(String msg) 
 	{
@@ -27,9 +27,9 @@ public enum MessageBoxResult {
 
 	
 	/**
-	 * Metoda zwracaj¹ca nazwê naciœniêtego przycisku.
+	 * Metoda zwracajaca nazwe nacisnietego przycisku.
 	 * 
-	 * @return Nazwa naciœniêtego przycisku.
+	 * @return Nazwa nacisnietego przycisku.
 	 */
 	@Override
 	public String toString() 
@@ -38,10 +38,10 @@ public enum MessageBoxResult {
 	}
 	
 	/**
-	 * Metoda zwracaj¹ca enum w zale¿noœci od naciœniêtego przycisku. 
+	 * Metoda zwracajaca enum w zaleznosci od nacisnietego przycisku. 
 	 * 
-	 * @param text Argument typu Strng, który opisuje jaki przycisk zosta³ naciœniêty.
-	 * @return Enum komunikatu jaki zosta³ naciœniêty, lub enum "Cancel" w przypadku zamkniêcia okna.
+	 * @param text Argument typu Strng, ktory opisuje jaki przycisk zostal nacisniety.
+	 * @return Enum komunikatu jaki zostal nacisniety, lub enum "Cancel" w przypadku zamkniecia okna.
 	 */
 	public static MessageBoxResult getResult(String text)
 	{

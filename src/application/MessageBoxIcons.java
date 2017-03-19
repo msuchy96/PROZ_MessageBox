@@ -1,7 +1,7 @@
 /**
- * Enum zawieraj¹cy informacje o ikonach.
+ * Enum zawierajacy informacje o ikonach.
  * 
- * @param text Parametr typu String zawieraj¹cy nazwê pliku z ikon¹.
+ * @param text Parametr typu String zawierajacy nazwe pliku z ikona.
  * 
  */
 package application;
@@ -17,7 +17,7 @@ public enum MessageBoxIcons {
 	
 	/**
 	 * Konstruktor enuma.
-	 * @param msg Argument typu String, który jest kopiowany do nowego jako nowa nazwa pliku z ikon¹ w enumie.
+	 * @param msg Argument typu String, ktory jest kopiowany do nowego jako nowa nazwa pliku z ikona w enumie.
 	 */
 	MessageBoxIcons(String msg) 
 	{
@@ -26,8 +26,8 @@ public enum MessageBoxIcons {
 
 	
 	/**
-	 * Metoda zwracaj¹ca nazwê pliku z ikon¹.
-	 * @return Nazwa pliku z ikon¹.
+	 * Metoda zwracajaca nazwe pliku z ikona.
+	 * @return Nazwa pliku z ikona.
 	 */
 	@Override
 	public String toString() 
