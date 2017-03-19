@@ -44,7 +44,7 @@ public class MessageBox extends Application {
 	
 	/**
 	 * Metoda show() odpowiada za pobranie od uzytkownika w argumentach
-	 * informacji o wyswietlanym oknie, zapisanie ich jako argumenty klasy
+	 * informacji o wyswietlanym oknie, wywo³anie glownego settera
 	 * MessageBox oraz wywolanie metody start() poprzez wywolanie metody
 	 * Launch().
 	 * 
@@ -64,16 +64,15 @@ public class MessageBox extends Application {
 	public static MessageBoxResult show(String givenTitle, String givenInformation, MessageBoxButtons buttonsPreference,
 			MessageBoxIcons iconPreference, String[] args) {
 
-		title = givenTitle;
-		information = givenInformation;
-		boxIcon = iconPreference;
-		boxButtons = buttonsPreference;
-
+		
+		setMessageBox(givenTitle,givenInformation,iconPreference,buttonsPreference);	
+		
 		launch(args);
 
 		return MessageBoxResult.getResult(result);
 
 	}
+	
 
 	/**
 	 * Metoda start() ,ktora odpowiada za tworzenie i wyswietlanie okna oraz
@@ -168,5 +167,27 @@ public class MessageBox extends Application {
 				primaryStage.close();
 			}
 
+	}
+	
+	/**
+	 * Metoda ustawiajaca wszystkie najwazniejsze parametry okna
+	 * 
+	 * @param givenTitle
+	 *            Otrzymany tytul
+	 * @param givenInformation
+	 *            Otrzymany komunikat
+	 * @param buttonsPreference
+	 *            Otrzymane preferencje dotyczace przyciskow
+	 * @param iconPreference
+	 *            Otrzymane preferencje dotyczace ikony
+	 */
+	private static void setMessageBox(String givenTitle, String givenInformation, MessageBoxIcons iconPreference,
+			MessageBoxButtons buttonsPreference)
+	{
+		title = givenTitle;
+		information = givenInformation;
+		boxIcon = iconPreference;
+		boxButtons = buttonsPreference;
+		
 	}
 }
