@@ -23,10 +23,10 @@ public class MessageBoxTests {
 		String information;
 		Scanner input = new Scanner(System.in);
 
-		System.out.println("Give Title:");
+		System.out.println("Podaj tytul:");
 		title = input.nextLine(); // uzytkownik wprowadza tytul
 
-		System.out.println("Give Information: ");
+		System.out.println("Podaj komunikat: ");
 		information = input.nextLine(); // uzytkownik wprowadza komunikat
 
 		MessageBoxResult result = MessageBox.show(title, information, MessageBoxButtons.YesNo, MessageBoxIcons.Warning,

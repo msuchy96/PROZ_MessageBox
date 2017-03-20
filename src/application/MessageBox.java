@@ -1,6 +1,6 @@
 /**
  * Klasa MessageBox implementujaca wyswietlanie i obsluge okna komunikatow.
- * 
+ * Obiekt nigdy nie jest tworzony, wiec konstruktor jest zbedny.
  * W klasie wystepuja nastepujace parametry:
  * @param title	Parametr typu String odpowiadajacy za przechowanie nazwy tytulu okna komunikatu.
  * @param information Parametr typu String odpawiadajacy za przechowanie komunikatu podanego przez uzytkownika.
@@ -35,114 +35,6 @@ public class MessageBox extends Application {
 	private static String result;
 	private static MessageBoxIcons boxIcon;
 	private static MessageBoxButtons boxButtons;
-
-	/**
-	 * Prywatny konstruktor bezargumentowy, aby nikt z zewnatrz nie mogl
-	 * stworzyc obiektu tej klasy.
-	 * 
-	 */
-	private MessageBox() {
-	}
-
-	/**
-	 * Metoda show() odpowiada za pobranie od uzytkownika w argumentach
-	 * informacji o wyswietlanym oknie, wywo³anie glownego settera MessageBox
-	 * oraz wywolanie metody start() poprzez wywolanie metody Launch().
-	 * 
-	 * @param givenTitle
-	 *            Otrzymany tytul
-	 * @param givenInformation
-	 *            Otrzymany komunikat
-	 * @param buttonsPreference
-	 *            Otrzymane preferencje dotyczace przyciskow
-	 * @param iconPreference
-	 *            Otrzymane preferencje dotyczace ikony
-	 * @param args
-	 *            Argumenty programu
-	 * @return Enum MessageBoxResult, ktory mowi o tym jaki przycisk zostal
-	 *         wcisniety
-	 */
-	public static MessageBoxResult show(String givenTitle, String givenInformation, MessageBoxButtons buttonsPreference,
-			MessageBoxIcons iconPreference, String[] args) {
-
-		setMessageBox(givenTitle, givenInformation, iconPreference, buttonsPreference);
-
-		launch(args);
-
-		return MessageBoxResult.getResult(result);
-
-	}
-
-	/**
-	 * Metoda start() ,ktora odpowiada za tworzenie i wyswietlanie okna oraz
-	 * "nasluchiwanie" czy jakis przycisk nie zostal nacisniety.
-	 * 
-	 * @param primaryStage
-	 *            Obiekt klasy stage skonstruowany przez platforme JavaFx.
-	 */
-	@Override
-	public void start(Stage primaryStage) {
-
-		BorderPane root = new BorderPane(); // root - jest to layout, ktory
-											// posiada 5 obszarow:
-											// top,right,bottom,left,center
-		root.setPadding(new Insets(20, 20, 20, 20));
-		primaryStage.setTitle(title);
-
-		Text text = new Text(information); // text - odpowiada za opakowanie
-											// komunikatu i jego wyglad
-		text.setWrappingWidth(400);
-		text.setTextAlignment(TextAlignment.CENTER);
-		text.setTextAlignment(TextAlignment.JUSTIFY);
-		root.setCenter(text);
-
-		HBox btnBox = new HBox(40); // btnBox - odpowiada za opakowanie
-									// przyciskow i zarzadzanie ich wygladem
-
-		Button[] buttons = new Button[boxButtons.getCount()]; // []buttons -
-																// trzymajaca
-																// wszystkie
-																// stworzone
-																// obiekty typu
-																// Button
-		for (int i = 0; i < boxButtons.getCount(); i++) {
-			buttons[i] = new Button();
-			buttons[i].setText(boxButtons.getText(i));
-			btnBox.getChildren().add(buttons[i]);
-		}
-
-		btnBox.setSpacing(20);
-		btnBox.setPadding(new Insets(8, 0, 0, 0));
-		btnBox.setAlignment(Pos.CENTER);
-
-		String path = "file:src/images/" + boxIcon.toString(); // path -
-																// stworzenie
-																// dokladnej
-																// sciezki z
-																// nazwa
-																// wyswietlanej
-																// ikony
-		Image img = new Image(path); // img - zawiera wybrana ikone
-
-		ImageView imgPic = new ImageView(); // imgPic - odpowiada za opakowanie
-											// ikony i zarzadzanie nia
-		imgPic.setImage(img);
-
-		BorderPane.setAlignment(imgPic, Pos.CENTER);
-
-		root.setBottom(btnBox);
-		root.setLeft(imgPic);
-
-		Scene scene = new Scene(root); // scene - "plotno" na ktorym wyswietlany
-										// jest zaprojektowany layout.
-		primaryStage.setScene(scene);
-		primaryStage.setResizable(false);
-		primaryStage.show();
-
-		for (int i = 0; i < boxButtons.getCount(); i++)
-			buttons[i].setOnAction(e -> handleButtonAction(e, buttons, primaryStage));
-
-	}
 
 	/**
 	 * Metoda odpowiadajaca za obsluge event'u i zamykanie sceny.
@@ -188,4 +80,98 @@ public class MessageBox extends Application {
 		boxButtons = buttonsPreference;
 
 	}
+
+	/**
+	 * Metoda show() odpowiada za pobranie od uzytkownika w argumentach
+	 * informacji o wyswietlanym oknie, wywolanie glownego settera MessageBox
+	 * oraz wywolanie metody start() poprzez wywolanie metody Launch().
+	 * 
+	 * @param givenTitle
+	 *            Otrzymany tytul
+	 * @param givenInformation
+	 *            Otrzymany komunikat
+	 * @param buttonsPreference
+	 *            Otrzymane preferencje dotyczace przyciskow
+	 * @param iconPreference
+	 *            Otrzymane preferencje dotyczace ikony
+	 * @param args
+	 *            Argumenty programu
+	 * @return Enum MessageBoxResult, ktory mowi o tym jaki przycisk zostal
+	 *         wcisniety
+	 */
+	public static MessageBoxResult show(String givenTitle, String givenInformation, MessageBoxButtons buttonsPreference,
+			MessageBoxIcons iconPreference, String[] args) {
+
+		setMessageBox(givenTitle, givenInformation, iconPreference, buttonsPreference);
+
+		launch(args);
+
+		return MessageBoxResult.getResult(result);
+
+	}
+
+	/**
+	 * Metoda start() ,ktora odpowiada za tworzenie i wyswietlanie okna oraz
+	 * "nasluchiwanie" czy jakis przycisk nie zostal nacisniety.
+	 * 
+	 * @param primaryStage
+	 *            Obiekt klasy stage skonstruowany przez platforme JavaFx.
+	 */
+	@Override
+	public void start(Stage primaryStage) {
+
+		// root - jest to layout, ktory posiada 5 obszarow top, right, bottom, left, center
+		BorderPane root = new BorderPane();
+		root.setPadding(new Insets(20, 20, 20, 20));
+		primaryStage.setTitle(title);
+
+		// text - odpowiada za opakowanie komunikatu i jego wyglad
+		Text text = new Text(information);
+		text.setWrappingWidth(400);
+		text.setTextAlignment(TextAlignment.CENTER);
+		text.setTextAlignment(TextAlignment.JUSTIFY);
+		root.setCenter(text);
+
+		// btnBox - odpowiada za opakowanie przyciskow i zarzadzanie ich wygladem
+		HBox btnBox = new HBox(40);
+
+		// []buttons - trzymajaca wszystkie stworzone obiekty typu Button
+		Button[] buttons = new Button[boxButtons.getCount()];
+		for (int i = 0; i < boxButtons.getCount(); i++) {
+			buttons[i] = new Button();
+			buttons[i].setText(boxButtons.getText(i));
+			btnBox.getChildren().add(buttons[i]);
+		}
+
+		btnBox.setSpacing(20);
+		btnBox.setPadding(new Insets(8, 0, 0, 0));
+		btnBox.setAlignment(Pos.CENTER);
+		
+		// path - stworzenie dokladnej sciezki z nazwa wyswietlanej ikony
+		String path = "file:src/images/" + boxIcon.toString(); 
+		// img - zawiera wybrana ikone
+		Image img = new Image(path); 
+
+		// imgPic - odpowiada za opakowanie ikony i zarzadzanie nia
+		ImageView imgPic = new ImageView(); 
+											
+		imgPic.setImage(img);
+
+		BorderPane.setAlignment(imgPic, Pos.CENTER);
+
+		root.setBottom(btnBox);
+		root.setLeft(imgPic);
+
+		// scene - "plotno" na ktorym wyswietlany jest zaprojektowany layout.
+		Scene scene = new Scene(root); 
+									
+		primaryStage.setScene(scene);
+		primaryStage.setResizable(false);
+		primaryStage.show();
+
+		for (int i = 0; i < boxButtons.getCount(); i++)
+			buttons[i].setOnAction(e -> handleButtonAction(e, buttons, primaryStage));
+
+	}
+
 }
