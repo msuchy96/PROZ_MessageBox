@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Enum zawierajacy informacje o tym jaki przycisk zostal nacisniety.
  * 
  */

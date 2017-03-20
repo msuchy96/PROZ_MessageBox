@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Enum zawierajacy informacje o przyciskach.
  * 
  * @param text Tablica typu String zawierajaca nazwy przyciskow, ktore maja zostaz przekazane.

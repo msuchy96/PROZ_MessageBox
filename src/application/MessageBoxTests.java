@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Klasa testujaca projekt.
  * 
  * Klasa nie potrzebuje konstruktora poniewaz obiekt nigdy nie jest tworzony.
