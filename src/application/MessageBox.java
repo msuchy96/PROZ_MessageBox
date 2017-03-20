@@ -1,4 +1,4 @@
-
+﻿
 /**
  * Klasa MessageBox implementujaca wyswietlanie i obsluge okna komunikatow.
  * Obiekt nigdy nie jest tworzony, wiec konstruktor jest zbedny.
