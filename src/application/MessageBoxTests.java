@@ -6,9 +6,12 @@
 
 package application;
 
-import java.util.Scanner;
 
-public class MessageBoxTests {
+
+import javafx.application.Application;
+import javafx.stage.Stage;
+
+public class MessageBoxTests extends Application {
 
 	
 	/**
@@ -19,21 +22,29 @@ public class MessageBoxTests {
 	 *            Argumenty z command_line
 	 */
 	public static void main(String[] args) {
-		String title;
-		String information;
-		Scanner input = new Scanner(System.in);
+		
+		launch(args);
+		System.exit(0);
+	}
 
-		System.out.println("Podaj tytul:");
-		title = input.nextLine(); // uzytkownik wprowadza tytul
-
-		System.out.println("Podaj komunikat: ");
-		information = input.nextLine(); // uzytkownik wprowadza komunikat
-
-		MessageBoxResult result = MessageBox.show(title, information, MessageBoxButtons.YesNo, MessageBoxIcons.Warning,
-				args);
+	/**
+	 * Metoda start() ,ktora odpowiada za tworzenie i wyswietlanie okna oraz
+	 * "nasluchiwanie" czy jakis przycisk nie zostal nacisniety.
+	 * 
+	 * @param arg0
+	 *            Obiekt klasy stage skonstruowany przez platforme JavaFx.
+	 */
+	@Override
+	public void start(Stage arg0)  {
+		
+		String title = "Tytul";
+		String information = " Wszystkie informacje ";
+	
+		
+		MessageBoxResult result = MessageBox.show(title, information, MessageBoxButtons.YesNo, MessageBoxIcons.Warning);
 
 		System.out.println("Odpowiedz: " + result);
-
-		System.exit(0);
+		
+		
 	}
 }
