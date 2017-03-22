@@ -1,10 +1,9 @@
-﻿/**
- * Enum zawierajacy informacje o przyciskach.
- * 
- * @param text Tablica typu String zawierajaca nazwy przyciskow, ktore maja zostaz przekazane.
- */
 package application;
 
+/**
+ * Enum zawierajacy informacje o przyciskach.
+ * 
+ */
 public enum MessageBoxButtons {
 
 	AbortRetryIgnore("Przerwij", "Ponow", "Ignoruj"), OK("OK"), OkCancel("OK", "Anuluj"), RetryCancel("Ponow",

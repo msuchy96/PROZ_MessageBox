@@ -1,15 +1,3 @@
-﻿
-/**
- * Klasa MessageBox implementujaca wyswietlanie i obsluge okna komunikatow.
- * Obiekt nigdy nie jest tworzony, wiec konstruktor jest zbedny.
- *
- * 
- * @param boxResult Wartosc zwracana przez metode. Informuje o tym jaki przycisk zostal nacisniety.
- * 
- * @autor Maciej Suchocki / msuchock@stud.elka.pw.edu.pl
- * @version 1.7
- */
-
 package application;
 
 import javafx.event.ActionEvent;
@@ -27,46 +15,29 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+/**
+ * Klasa implementujaca wyswietlanie i obsluge okna komunikatow. Obiekt nigdy
+ * nie jest tworzony, wiec konstruktor jest zbedny.
+ *
+ * 
+ * @param boxResult
+ *            Wartosc zwracana przez metode. Informuje o tym jaki przycisk
+ *            zostal nacisniety.
+ * 
+ * @autor Maciej Suchocki / msuchock@stud.elka.pw.edu.pl
+ */
 public class MessageBox {
 
 	private static MessageBoxResult boxResult;
 
 	/**
-	 * Metoda obslugujaca zamykanie okna przyciskiem zamkniecia okna w prawym
-	 * gornym rogu.
+	 * Metoda ustawiajaca odpowiedz co zostalo klikniete
 	 * 
-	 * @param event
-	 *            Jest to akcja ktora zostala podjeta przez okno.
-	 * @param currentStage
-	 *            Aktualne okno.
+	 * @param result
+	 *            Enum z odpowiedzia
 	 */
-	private static void closeWindow(WindowEvent event, Stage currentStage) {
-
-		boxResult = MessageBoxResult.Cancel;
-		currentStage.close();
-
-	}
-
-	/**
-	 * Metoda odpowiadajaca za obsluge event'u i zamykanie okna.
-	 * 
-	 * @param event
-	 *            Parametr odpowiadajacy za przechowanie wykonanej akcji.
-	 * @param buttons
-	 *            Tablica przechowujaca wszystkie predefiniowane przyciski.
-	 * @param boxButtons
-	 *            Enum, zawieracjacy predefiniowane przyciski.
-	 * @param currentStage
-	 *            Aktualne okno.
-	 */
-	private static void handleButtonAction(ActionEvent event, Button[] buttons, MessageBoxButtons boxButtons,
-			Stage currentStage) {
-
-		for (int i = 0; i < boxButtons.getCount(); i++)
-			if (event.getSource() == buttons[i]) {
-				boxResult = MessageBoxResult.getResult(boxButtons.getText(i));
-				currentStage.close();
-			}
+	private static void setBoxResult(MessageBoxResult result) {
+		boxResult = result;
 	}
 
 	/**
@@ -147,6 +118,7 @@ public class MessageBox {
 	 * @return Kontener zarzadzajacy ukladem w oknie.
 	 */
 	private static BorderPane setNewLayout(ImageView imgPic, Text text, HBox btnBox) {
+
 		BorderPane root = new BorderPane();
 		root.setPadding(new Insets(20, 20, 20, 20));
 		BorderPane.setAlignment(imgPic, Pos.CENTER);
@@ -192,8 +164,46 @@ public class MessageBox {
 	}
 
 	/**
+	 * Metoda odpowiadajaca za obsluge event'u i zamykanie okna.
+	 * 
+	 * @param event
+	 *            Parametr odpowiadajacy za przechowanie wykonanej akcji.
+	 * @param buttons
+	 *            Tablica przechowujaca wszystkie predefiniowane przyciski.
+	 * @param boxButtons
+	 *            Enum, zawieracjacy predefiniowane przyciski.
+	 * @param currentStage
+	 *            Aktualne okno.
+	 */
+	private static void handleButtonAction(ActionEvent event, Button[] buttons, MessageBoxButtons boxButtons,
+			Stage currentStage) {
+
+		for (int i = 0; i < boxButtons.getCount(); i++)
+			if (event.getSource() == buttons[i]) {
+				setBoxResult(MessageBoxResult.getResult(boxButtons.getText(i)));
+				currentStage.close();
+			}
+	}
+
+	/**
+	 * Metoda obslugujaca zamykanie okna przyciskiem zamkniecia okna w prawym
+	 * gornym rogu.
+	 * 
+	 * @param event
+	 *            Jest to akcja ktora zostala podjeta przez okno.
+	 * @param currentStage
+	 *            Aktualne okno.
+	 */
+	private static void closeWindow(WindowEvent event, Stage currentStage) {
+
+		setBoxResult(MessageBoxResult.Cancel);
+		currentStage.close();
+
+	}
+
+	/**
 	 * Metoda odpowiada za pobranie od uzytkownika w argumentach informacji o
-	 * wyswietlanym oknie Stworzenie i wyswietlenie go oraz jego obsluge.
+	 * wyswietlanym oknie. Stworzenie i wyswietlenie go oraz jego obsluge.
 	 * 
 	 * @param givenTitle
 	 *            Otrzymany tytul

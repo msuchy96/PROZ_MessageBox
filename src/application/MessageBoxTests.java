@@ -1,14 +1,15 @@
-﻿/**
- * Klasa testujaca projekt.
- * 
- * Klasa nie potrzebuje konstruktora poniewaz obiekt nigdy nie jest tworzony.
- */
-
 package application;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
 
+/**
+ * Klasa testujaca projekt.
+ * 
+ * Klasa nie potrzebuje konstruktora poniewaz obiekt nigdy nie jest tworzony.
+ *
+ * @autor Maciej Suchocki / msuchock@stud.elka.pw.edu.pl
+ */
 public class MessageBoxTests extends Application {
 
 	/**

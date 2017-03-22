@@ -1,9 +1,9 @@
-﻿/**
+package application;
+
+/**
  * Enum zawierajacy informacje o tym jaki przycisk zostal nacisniety.
  * 
  */
-package application;
-
 public enum MessageBoxResult {
 
 	Abort("Przerwij"), Retry("Ponow"), Ignore("Ignoruj"), OK("OK"), Cancel("Anuluj"), Yes("Tak"), No("Nie");

@@ -1,11 +1,12 @@
-﻿/**
- * Enum zawierajacy informacje o ikonach.
- * 
- * @param text Parametr typu String zawierajacy nazwe pliku z ikona.
- * 
- */
 package application;
 
+/**
+ * Enum zawierajacy informacje o ikonach.
+ * 
+ * @param text
+ *            Parametr typu String zawierajacy nazwe pliku z ikona.
+ * 
+ */
 public enum MessageBoxIcons {
 
 	Information("StatusInformation_64x.png"), Warning("StatusWarning_64x.png"), 
