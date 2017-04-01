@@ -6,8 +6,8 @@ package application;
  */
 public enum MessageBoxButtons {
 
-	AbortRetryIgnore("Przerwij", "Ponow", "Ignoruj"), OK("OK"), OkCancel("OK", "Anuluj"), RetryCancel("Ponow",
-			"Anuluj"), YesNo("Tak", "Nie"), YesNoCancel("Tak", "Nie", "Anuluj");
+	AbortRetryIgnore("Abort", "Retry", "Ignore"), OK("OK"), OkCancel("OK", "Cancel"), RetryCancel("Retry",
+			"Cancel"), YesNo("Yes", "No"), YesNoCancel("Yes", "No", "Cancel");
 
 	private String[] text = new String[3];
 	private int count;

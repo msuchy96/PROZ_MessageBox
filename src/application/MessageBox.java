@@ -16,36 +16,35 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 /**
- * Klasa implementujaca wyswietlanie i obsluge okna komunikatow. Obiekt nigdy
- * nie jest tworzony, wiec konstruktor jest zbedny.
- *
+ * Class which implements public method show, allowing user to display a Dialog.
  * 
- * @param boxResult
- *            Wartosc zwracana przez metode. Informuje o tym jaki przycisk
- *            zostal nacisniety.
- * 
- * @autor Maciej Suchocki / msuchock@stud.elka.pw.edu.pl
+ * @author Maciej Suchocki / msuchock@stud.elka.pw.edu.pl
  */
 public class MessageBox {
 
 	private static MessageBoxResult boxResult;
 
 	/**
-	 * Metoda ustawiajaca odpowiedz co zostalo klikniete
+	 * Private constructor of this static class unables creating an instance of it.
+	 */
+	private MessageBox() {};
+	
+	/**
+	 * Simple result setter
 	 * 
 	 * @param result
-	 *            Enum z odpowiedzia
+	 *            enum with answer
 	 */
 	private static void setBoxResult(MessageBoxResult result) {
 		boxResult = result;
 	}
 
 	/**
-	 * Metoda odpowiadająca za ustawienie najwazniejszych parametrow okna.
+	 * Creates and sets basic stage properties.
 	 * 
 	 * @param title
-	 *            Tytul wyswietlanego okna.
-	 * @return Kontener odpowiadajacy za okno.
+	 *            window title
+	 * @return Window container.
 	 */
 	private static Stage setNewStage(String title) {
 		Stage newStage = new Stage();
@@ -55,12 +54,11 @@ public class MessageBox {
 	}
 
 	/**
-	 * Metoda odpowiadajaca za opakowanie komunikatu wyswietlanego w oknie.
+	 * Creates Text container. 
 	 * 
 	 * @param givenInformation
-	 *            Komunikat wyswietlany w oknie
-	 * @return Kontener odpowiadajacy za opakowanie komunikatu wyswietlanego w
-	 *         oknie.
+	 *            	the message displayed in the window
+	 * @return Container responsible for the message displayed in the window.
 	 */
 	private static Text setNewText(String givenInformation) {
 		Text text = new Text(givenInformation);
@@ -72,10 +70,10 @@ public class MessageBox {
 	}
 
 	/**
-	 * Metoda odpowiadajaca za ustawienie wyglady konteneru na dodane przyciski.
+	 * Set properties for container which contains buttons.
 	 * 
 	 * @param btnBox
-	 *            Kontener zawierajacy dodane przyciski.
+	 *            Ready container with buttons.
 	 */
 	private static void setbtnBoxProperties(HBox btnBox) {
 		btnBox.setSpacing(20);
@@ -84,14 +82,13 @@ public class MessageBox {
 	}
 
 	/**
-	 * Metoda odpowiadajaca za opakowanie wszystkich przyciskow w kontener i
-	 * ustawienia ich jako aktywne.
+	 * Sets all button in the container as active.
 	 * 
-	 * @param buttonsPreference
+	 * @param buttonsPreference enum with information about buttons
 	 * @param btnBox
-	 *            Konteren z przyciskami.
+	 *            container with buttons
 	 * @param currentStage
-	 *            Aktualne okno.
+	 *            stage without set buttons.
 	 */
 	private static void setAllButtons(MessageBoxButtons buttonsPreference, HBox btnBox, Stage currentStage) {
 
@@ -106,16 +103,15 @@ public class MessageBox {
 	}
 
 	/**
-	 * Metoda odpowiadajaca za ustawienie najwazniejszych parametrow opakowania
-	 * zarzadzajacego ukladem w oknie.
+	 * Creates and sets all important container parameters which manages layout in window.
 	 * 
 	 * @param imgPic
-	 *            Opakowany obrazek
+	 *            packaged image
 	 * @param text
-	 *            Opakowany komunikat
+	 *            packaged message
 	 * @param btnBox
-	 *            Opakowane przyciski
-	 * @return Kontener zarzadzajacy ukladem w oknie.
+	 *            packaged buttons
+	 * @return  Container which manages layout in window.
 	 */
 	private static BorderPane setNewLayout(ImageView imgPic, Text text, HBox btnBox) {
 

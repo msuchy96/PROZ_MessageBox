@@ -3,9 +3,6 @@ package application;
 /**
  * Enum zawierajacy informacje o ikonach.
  * 
- * @param text
- *            Parametr typu String zawierajacy nazwe pliku z ikona.
- * 
  */
 public enum MessageBoxIcons {
 
