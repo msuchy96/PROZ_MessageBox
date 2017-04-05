@@ -73,7 +73,7 @@ public class MessageBox {
 	 * Set properties for container which contains buttons.
 	 * 
 	 * @param btnBox
-	 *            Ready container with buttons.
+	 *            Ready Horizontal Box container with buttons.
 	 */
 	private static void setbtnBoxProperties(HBox btnBox) {
 		btnBox.setSpacing(20);
@@ -88,7 +88,7 @@ public class MessageBox {
 	 * @param btnBox
 	 *            container with buttons
 	 * @param currentStage
-	 *            stage without set buttons.
+	 *            main container without stage without set buttons.
 	 */
 	private static void setAllButtons(MessageBoxButtons buttonsPreference, HBox btnBox, Stage currentStage) {
 
@@ -126,12 +126,11 @@ public class MessageBox {
 	}
 
 	/**
-	 * Metoda odpowiadajaca za opakowanie obrazka wyswietlanego w oknie.
+	 * Creates icon container
 	 * 
 	 * @param iconPreference
-	 *            Enum zawierajacy informacje o obrazku do wyswietlenia
-	 * @return Kontener odpowiadajacy za opakowanie obrazka wyswietlanego w
-	 *         oknie.
+	 *            enum which contains all information about icon preference
+	 * @return Icon Container.
 	 */
 	private static ImageView setPic(MessageBoxIcons iconPreference) {
 		ImageView imgPic = new ImageView();
@@ -142,13 +141,12 @@ public class MessageBox {
 	}
 
 	/**
-	 * Metoda odpowiadajaca za akcje ktore podejmuje okno i ustawienie na nim
-	 * sceny.
+	 * Manages window actions and sets up a scene on it.
 	 * 
 	 * @param currentStage
-	 *            Aktualne okno.
+	 *            current main container
 	 * @param scene
-	 *            Kontener na ktorym wyswietlany jest layout.
+	 *            background for UI elements
 	 */
 	private static void stageActions(Stage currentStage, Scene scene) {
 
@@ -160,16 +158,16 @@ public class MessageBox {
 	}
 
 	/**
-	 * Metoda odpowiadajaca za obsluge event'u i zamykanie okna.
+	 * Manages performed events
 	 * 
 	 * @param event
-	 *            Parametr odpowiadajacy za przechowanie wykonanej akcji.
+	 *            action which was performed 
 	 * @param buttons
-	 *            Tablica przechowujaca wszystkie predefiniowane przyciski.
+	 *            table which contains all buttons
 	 * @param boxButtons
-	 *            Enum, zawieracjacy predefiniowane przyciski.
+	 *            enum which contains all information about button preference
 	 * @param currentStage
-	 *            Aktualne okno.
+	 *            current main container
 	 */
 	private static void handleButtonAction(ActionEvent event, Button[] buttons, MessageBoxButtons boxButtons,
 			Stage currentStage) {
@@ -182,13 +180,12 @@ public class MessageBox {
 	}
 
 	/**
-	 * Metoda obslugujaca zamykanie okna przyciskiem zamkniecia okna w prawym
-	 * gornym rogu.
+	 * Closes window by clicking on "X" button.
 	 * 
 	 * @param event
-	 *            Jest to akcja ktora zostala podjeta przez okno.
+	 *            action which was performed 
 	 * @param currentStage
-	 *            Aktualne okno.
+	 *           current main container
 	 */
 	private static void closeWindow(WindowEvent event, Stage currentStage) {
 
@@ -198,19 +195,20 @@ public class MessageBox {
 	}
 
 	/**
-	 * Metoda odpowiada za pobranie od uzytkownika w argumentach informacji o
-	 * wyswietlanym oknie. Stworzenie i wyswietlenie go oraz jego obsluge.
+	 * Gets all required information about window, creates and displays it.
+	 * 
 	 * 
 	 * @param givenTitle
-	 *            Otrzymany tytul
+	 *            title to be displayed
 	 * @param givenInformation
-	 *            Otrzymany komunikat
+	 *            text to be displayed
 	 * @param buttonsPreference
-	 *            Otrzymane preferencje dotyczace przyciskow
+	 *            enum which values are represented by a String array
 	 * @param iconPreference
-	 *            Otrzymane preferencje dotyczace ikony
+	 *            enum allowing to easily choose image for MessageBox
 	 * 
-	 * @return Enum, ktory mowi o tym jaki przycisk zostal wcisniety
+	 * @return enum containing text corresponding to the name of a
+	 *         button
 	 */
 	public static MessageBoxResult show(String givenTitle, String givenInformation, MessageBoxButtons buttonsPreference,
 			MessageBoxIcons iconPreference) {

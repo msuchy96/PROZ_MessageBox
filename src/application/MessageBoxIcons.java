@@ -1,7 +1,7 @@
 package application;
 
 /**
- * Enum zawierajacy informacje o ikonach.
+ * Enum which contains all predefined icons.
  * 
  */
 public enum MessageBoxIcons {
@@ -11,20 +11,19 @@ public enum MessageBoxIcons {
 	private String text;
 
 	/**
-	 * Konstruktor enuma.
+	 * Enum's constructor.
 	 * 
-	 * @param msg
-	 *            Argument typu String, ktory jest kopiowany do nowego jako nowa
-	 *            nazwa pliku z ikona w enumie.
+	 * @param msg 
+	 *            String argument which is copied as new icon file name in enum
 	 */
 	MessageBoxIcons(String msg) {
 		text = msg;
 	}
 
 	/**
-	 * Metoda zwracajaca nazwe pliku z ikona.
+	 * Returns name of icon file.
 	 * 
-	 * @return Nazwa pliku z ikona.
+	 * @return Name of icon file.
 	 */
 	@Override
 	public String toString() {

@@ -1,7 +1,7 @@
 package application;
 
 /**
- * Enum zawierajacy informacje o przyciskach.
+ * Enum which contains all predefined Buttons.
  * 
  */
 public enum MessageBoxButtons {
@@ -13,11 +13,10 @@ public enum MessageBoxButtons {
 	private int count;
 
 	/**
-	 * Konstruktor Enuma, ktory jednoczesnie zlicza ile przyciskow znajduje sie
-	 * w danym enumie.
+	 * Enum's constructor which counting how many buttons are in a specific enum.
 	 * 
 	 * @param msg
-	 *            Argument zawierajacy tablice typu String z nazwami przyciskow.
+	 *            String array which contains button labels
 	 */
 	MessageBoxButtons(String... msg) {
 		for (int i = 0; i < msg.length; ++i)
@@ -27,21 +26,19 @@ public enum MessageBoxButtons {
 	}
 
 	/**
-	 * Metoda zwracajaca nazwe przycisku o danym indeksie.
-	 * 
+	 * Returns the label of a button with a given index.
 	 * @param i
-	 *            Argument typu int opisujacy jaki element tablicy "text" ma byc
-	 *            zwrocony
-	 * @return Element tablicy "text" o podanym indeksie.
+	 *            given index of the array with labels 
+	 * @return Element of array with labels
 	 */
 	public String getText(int i) {
 		return text[i];
 	}
 
 	/**
-	 * Metoda zwracajaca ilosc przyciskow w danym enumie.
+	 * Getter number of buttons in enum.
 	 * 
-	 * @return Ilosc przyciskow w danym enumie.
+	 * @return Number of buttons in enum.
 	 */
 	public int getCount() {
 		return count;

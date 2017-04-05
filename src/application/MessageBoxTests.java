@@ -4,20 +4,19 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 /**
- * Klasa testujaca projekt.
+ * Testing class.
  * 
- * Klasa nie potrzebuje konstruktora poniewaz obiekt nigdy nie jest tworzony.
+ * Class do not need constructor because object is never created.
  *
  * @author Maciej Suchocki / msuchock@stud.elka.pw.edu.pl
  */
 public class MessageBoxTests extends Application {
 
 	/**
-	 * Metoda wywolujaca glowna metode JavaFx za pomocy metody Launch i
-	 * zamykajaca program.
+	 * Calls main JavaFx method and closes program.
 	 * 
 	 * @param args
-	 *            Argumenty z command_line
+	 *            commandLine arguments
 	 */
 	public static void main(String[] args) {
 
@@ -26,11 +25,10 @@ public class MessageBoxTests extends Application {
 	}
 
 	/**
-	 * Metoda odpowiadajaca za wywolanie metod tworzacych okno i wypisanie
-	 * odpowiedzi uzytkownika.
+	 * Calls method which creates window with specific information, title and buttons and displays user response.
 	 * 
 	 * @param arg0
-	 *            Obiekt klasy Stage skonstruowany przez platforme JavaFx.
+	 *            Instance of Stage which was automatically created by JavaFX.
 	 */
 	@Override
 	public void start(Stage arg0) {

@@ -1,7 +1,7 @@
 package application;
 
 /**
- * Enum zawierajacy informacje o tym jaki przycisk zostal nacisniety.
+ * Enum which contains which button was clicked. 
  * 
  */
 public enum MessageBoxResult {
@@ -10,20 +10,20 @@ public enum MessageBoxResult {
 	private String text;
 
 	/**
-	 * Konstruktor enuma.
+	 * Enum's constructor.
 	 * 
 	 * @param msg
-	 *            Argument typu String, ktory jest kopiowany jako nowy mozliwy
-	 *            wybor komunikatu.
+	 *            String argument which is copied as new possible answer
+	 *            
 	 */
 	MessageBoxResult(String msg) {
 		text = msg;
 	}
 
 	/**
-	 * Metoda zwracajaca nazwe nacisnietego przycisku.
+	 * Returns label of pressed button.
 	 * 
-	 * @return Nazwa nacisnietego przycisku.
+	 * @return Label of pressed button
 	 */
 	@Override
 	public String toString() {
@@ -31,13 +31,11 @@ public enum MessageBoxResult {
 	}
 
 	/**
-	 * Metoda zwracajaca enum w zaleznosci od nacisnietego przycisku.
+	 * Returns enum with result depending on the pressed button.
 	 * 
 	 * @param text
-	 *            Argument typu Strng, ktory opisuje jaki przycisk zostal
-	 *            nacisniety.
-	 * @return Enum komunikatu jaki zostal nacisniety, lub enum "Cancel" w
-	 *         przypadku zamkniecia okna.
+	 *            String argument which describes which button was pressed.
+	 * @return Enum which describes which button was pressed or enum with "Cancel" information if window was closed.
 	 */
 	public static MessageBoxResult getResult(String text) {
 		for (MessageBoxResult result : MessageBoxResult.values())
