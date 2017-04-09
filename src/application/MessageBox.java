@@ -88,7 +88,7 @@ public class MessageBox {
 	 * @param btnBox
 	 *            container with buttons
 	 * @param currentStage
-	 *            main container without stage without set buttons.
+	 *            main container without set buttons.
 	 */
 	private static void setAllButtons(MessageBoxButtons buttonsPreference, HBox btnBox, Stage currentStage) {
 
